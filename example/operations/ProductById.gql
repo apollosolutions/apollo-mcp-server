@@ -1,0 +1,16 @@
+query ProductById($productId: ID!) {
+	product(id: $productId) {
+		id
+		price {
+			cost {
+				amount
+				currencyCode
+			}
+		}
+		reviewSummary {
+			averageRating
+		}
+		description
+		primaryImage
+	}
+}

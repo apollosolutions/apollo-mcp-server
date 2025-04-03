@@ -1,0 +1,17 @@
+query BestSellers {
+	bestSellers {
+		id
+		description
+		primaryImage
+		reviewSummary {
+			averageRating
+			totalReviews
+		}
+		price {
+			cost {
+				amount
+				currencyCode
+			}
+		}
+	}
+}

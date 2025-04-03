@@ -1,0 +1,16 @@
+query AllProducts {
+	products {
+		id
+		price {
+			cost {
+				amount
+				currencyCode
+			}
+		}
+		reviewSummary {
+			averageRating
+		}
+		description
+		primaryImage
+	}
+}

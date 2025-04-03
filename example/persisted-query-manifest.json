@@ -1,0 +1,26 @@
+{
+	"format": "apollo-persisted-query-manifest",
+	"version": 1,
+	"operations": [
+		{
+			"id": "022c94945de98f07512525a381d41e580972453c4458da2be9057c9b747e814b",
+			"clientName": "mcp",
+			"body": "query AllProducts {\n  products {\n    id\n    price {\n      cost {\n        amount\n        currencyCode\n        __typename\n      }\n      __typename\n    }\n    reviewSummary {\n      averageRating\n      __typename\n    }\n    description\n    primaryImage\n    __typename\n  }\n}"
+		},
+		{
+			"id": "5f61eb018e0f3615664496fd164ceeb4e9e41b35a89a8a4395182a0302d5a47e",
+			"clientName": "mcp",
+			"body": "query AllCategories {\n  categories {\n    category\n    __typename\n  }\n}"
+		},
+		{
+			"id": "bcf47b4519778c42972d4ea1d4fecb402e0cf0ae16fdf6108eec6d279c101355",
+			"clientName": "mcp",
+			"body": "query ProductById($productId: ID!) {\n  product(id: $productId) {\n    id\n    price {\n      cost {\n        amount\n        currencyCode\n        __typename\n      }\n      __typename\n    }\n    reviewSummary {\n      averageRating\n      __typename\n    }\n    description\n    primaryImage\n    __typename\n  }\n}"
+		},
+		{
+			"id": "e508d687220aec7aa2206e5e4410942bf5cf6a34d7573140e82b6ae17f6cee5e",
+			"clientName": "mcp",
+			"body": "query BestSellers {\n  bestSellers {\n    id\n    description\n    primaryImage\n    reviewSummary {\n      averageRating\n      totalReviews\n      __typename\n    }\n    price {\n      cost {\n        amount\n        currencyCode\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}"
+		}
+	]
+}

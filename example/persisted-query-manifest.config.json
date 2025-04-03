@@ -1,0 +1,4 @@
+{
+	"documents": ["operations/**/*.{graphql,gql}"],
+	"output": "persisted-query-manifest.json"
+}

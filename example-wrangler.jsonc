@@ -1,0 +1,38 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "apollosolutions-mcp-server",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-03-10",
+	"vars": {
+		"PERSISTED_QUERY_LIST_ID": "",
+		"GRAPH_ID": "",
+		"GRAPHQL_URL": ""
+	},
+	"migrations": [
+		{
+			"new_sqlite_classes": ["ApolloMcp"],
+			"tag": "v1"
+		}
+	],
+	"durable_objects": {
+		"bindings": [
+			{
+				"class_name": "ApolloMcp",
+				"name": "MCP_OBJECT"
+			}
+		]
+	},
+	"kv_namespaces": [
+		{
+			"binding": "APOLLO_KV",
+			"id": "your_kv_id"
+		}
+	],
+	"observability": {
+		"enabled": true
+	}
+}
