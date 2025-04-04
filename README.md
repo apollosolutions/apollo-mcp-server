@@ -6,6 +6,18 @@ This repository largely uses the template that [Cloudflare has created](https://
 
 **The code in this repository is experimental and has been provided for reference purposes only. Community feedback is welcome but this project may not be supported in the same way that repositories in the official [Apollo GraphQL GitHub organization](https://github.com/apollographql) are. If you need help you can file an issue on this repository, [contact Apollo](https://www.apollographql.com/contact-sales) to talk to an expert, or create a ticket directly in Apollo Studio.**
 
+- [GraphQL-based MCP Server using Cloudflare Workers](#graphql-based-mcp-server-using-cloudflare-workers)
+  - [Installation](#installation)
+    - [GraphOS Setup](#graphos-setup)
+    - [Manual steps](#manual-steps)
+  - [Usage](#usage)
+  - [Connect the MCP inspector to your server](#connect-the-mcp-inspector-to-your-server)
+  - [Connect Claude Desktop to your local MCP server](#connect-claude-desktop-to-your-local-mcp-server)
+  - [Deploying](#deploying)
+    - [Call your newly deployed remote MCP server from a remote MCP client](#call-your-newly-deployed-remote-mcp-server-from-a-remote-mcp-client)
+    - [Connect Claude Desktop to your remote MCP server](#connect-claude-desktop-to-your-remote-mcp-server)
+  - [Known Limitations](#known-limitations)
+
 ## Installation
 
 To get started, you will need: 
@@ -90,13 +102,17 @@ Open the file in your text editor and replace it with this configuration:
 
 This will run a local proxy and let Claude talk to your MCP server over HTTP.
 
-## Deploy to Cloudflare
+## Deploying
 
-1. `npx wrangler kv namespace create OAUTH_KV`
-2. Follow the guidance to add the kv namespace ID to `wrangler.jsonc`
-3. `npm run deploy`
+The next steps to deploy the application are: 
 
-## Call your newly deployed remote MCP server from a remote MCP client
+1. Create a new Cloudflare KV store for use with this worker. To do so, please see [Cloudflare's KV documentation](https://developers.cloudflare.com/kv/get-started/)
+2. Once you've created it, add the ID to the `kv_namespaces` block within the newly copied configuration
+3. Run `npm run deploy`
+
+That's it! You should now have a deployed copy of this application. 
+
+### Call your newly deployed remote MCP server from a remote MCP client
 
 Just like you did above in "Develop locally", run the MCP inspector:
 
@@ -106,7 +122,7 @@ Then enter the `workers.dev` URL (ex: `worker-name.account-name.workers.dev/sse`
 
 You've now connected to your MCP server from a remote MCP client.
 
-## Connect Claude Desktop to your remote MCP server
+### Connect Claude Desktop to your remote MCP server
 
 Update the Claude configuration file to point to your `workers.dev` URL (ex: `worker-name.account-name.workers.dev/sse`) and restart Claude 
 
@@ -123,16 +139,6 @@ Update the Claude configuration file to point to your `workers.dev` URL (ex: `wo
   }
 }
 ```
-
-## Deploying
-
-The next steps to deploy the application are: 
-
-1. Create a new Cloudflare KV store for use with this worker. To do so, please see [Cloudflare's KV documentation](https://developers.cloudflare.com/kv/get-started/)
-2. Once you've created it, add the ID to the `kv_namespaces` block within the newly copied configuration
-3. Run `npm run deploy`
-
-That's it! You should now have a deployed copy of this application. 
 
 ## Known Limitations
 
