@@ -5,7 +5,7 @@ import {
 	ListPromptsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 
-// TODO: Rewrite this to use the new tool API vs. setting request handlers
+// TODO: Rewrite this to use the new prompts API vs. setting request handlers
 export const definePrompts = async (mcpServer: McpServer, persistedQueries: PersistedQueries) => {
 	mcpServer.server.setRequestHandler(ListPromptsRequestSchema, async () => {
 		let prompts: {

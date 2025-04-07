@@ -36,17 +36,5 @@ export class ApolloMcp extends McpAgent {
 	}
 }
 
-// // Export the OAuth handler as the default
-// export default new OAuthProvider({
-// 	apiRoute: "/sse",
-// 	// TODO: fix these types
-// 	// @ts-ignore
-// 	apiHandler: ApolloMcp.mount("/sse"),
-// 	// @ts-ignore
-// 	defaultHandler: app,
-// 	authorizeEndpoint: "/authorize",
-// 	tokenEndpoint: "/token",
-// 	clientRegistrationEndpoint: "/register",
-// });
-
+// You could also use the default export to mount the agent using a wrapper for OAuth (or other authentication systems); for demo purposes we've removed it, but we highly recommend using it in production.
 export default ApolloMcp.mount("/sse");
